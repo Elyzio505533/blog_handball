@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le handball : son histoire, ses bienfaits, ses règles et ses postes.">
+    <title>Le handball de A à Z</title>
+
+    <!-- Police Lato (titres) depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" href="https://img.icons8.com/?size=100&id=jsO8ezdUQxEA&format=png&color=014370" type="image/png">
+</head>
+<body id="haut">
+
+    <!-- ===================== EN-TÊTE (barre de navigation) ===================== -->
+    <header class="entete">
+        <nav class="menu">
+            <!-- Le logo ramène en haut de la page -->
+            <a href="#haut" class="logo">
+                <img src="https://img.icons8.com/?size=100&id=jsO8ezdUQxEA&format=png&color=014370" width="40" height="40" alt="Retour en haut de la page">
+            </a>
+
+            <!-- Bouton burger : visible seulement sur mobile -->
+            <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="liens-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="liens-menu">
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#histoire">Histoire</a></li>
+                <li><a href="#bienfaits">Bienfaits</a></li>
+                <li><a href="#regles">Règles</a></li>
+                <li><a href="#postes">Postes</a></li>
+                <li><a href="#mental">Le mental</a></li>
+                <li><a href="#reactions">Réagir</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===================== TITRE + BANNIÈRE ===================== -->
+    <!-- L'image de fond est définie dans le CSS (.hero) -->
+    <div class="hero">
+        <h1>Au cœur du handball</h1>
+        <p class="sous-titre">Le guide parfait pour comprendre et aimer ce sport.</p>
+    </div>
+
+    <main class="contenu">
+
+        <!-- ===================== L'ESSENTIEL ===================== -->
+        <aside class="essentiel">
+            <h2>L'essentiel</h2>
+            <p>Vous avez déjà vu un match de handball à la télé sans tout comprendre ? En quelques minutes de lecture, vous saurez tout sur les règles, les postes et les bienfaits de ce sport.</p>
+        </aside>
+
+        <!-- ===================== INTRODUCTION ===================== -->
+        <section id="introduction">
+            <h2>C'est quoi, le handball ?</h2>
+            <p>Le handball est un sport collectif qui oppose deux équipes de 7 joueurs sur le terrain : 6 joueurs de champ et un gardien de but. Chaque équipe peut inscrire jusqu'à 16 joueurs sur la feuille de match, et les changements sont illimités. L'objectif est de marquer plus de buts que l'équipe adverse.</p>
+            <p>Le handball est pratiqué dans le monde entier et il est particulièrement populaire en Europe. La France est l'une des nations les plus performantes dans ce sport, avec de nombreux titres internationaux à son actif.</p>
+
+            <figure>
+                <img src="static/images/image_intro.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Gardien de but en pleine extension pour arrêter un tir pendant un match">
+                <figcaption>Un gardien se déploie de tout son long pour stopper un tir.</figcaption>
+            </figure>
+        </section>
+
+        <!-- ===================== HISTOIRE ===================== -->
+        <section id="histoire">
+            <h2>Un peu d'histoire</h2>
+            <p>Le handball moderne naît à la fin du XIXᵉ siècle au Danemark, où un professeur d'éducation physique, Holger Nielsen, en fixe les premières règles. En Allemagne, une version en extérieur se développe au début du XXᵉ siècle.</p>
+            <p>À l'origine, on y jouait à onze contre onze, sur des terrains de football. Le handball à sept en salle, plus rapide et plus spectaculaire, s'impose ensuite et devient la forme principale du sport.</p>
+
+            <figure>
+                <img src="static/images/histoire.webp" width="1000" height="558" loading="lazy" decoding="async" alt="Photo ancienne en noir et blanc d'un match de handball féminin en plein air, sur un terrain en herbe">
+                <figcaption>Un match de handball féminin en plein air, au début du XXᵉ siècle.</figcaption>
+            </figure>
+            <p>Le handball à onze apparaît aux Jeux olympiques de Berlin en 1936. Le handball en salle y fait son entrée en 1972 à Munich pour les hommes, puis en 1976 à Montréal pour les femmes.</p>
+        </section>
+
+        <!-- ===================== BIENFAITS ===================== -->
+        <section id="bienfaits">
+            <h2>Les bienfaits du handball</h2>
+
+            <h3>Sur le corps</h3>
+            <ul>
+                <li>Il améliore l'endurance et le cardio grâce aux courses d'un but à l'autre.</li>
+                <li>Il développe l'explosivité : sauts, accélérations, changements de direction.</li>
+                <li>Il renforce tout le corps : jambes, bras, épaules et gainage.</li>
+                <li>Il travaille la coordination entre les yeux, les mains et les pieds.</li>
+            </ul>
+
+            <h3>Sur le mental</h3>
+            <ul>
+                <li>Il entraîne les réflexes et la prise de décision rapide.</li>
+                <li>Il apprend à gérer la pression et à rester concentré.</li>
+            </ul>
+
+            <h3>Sur la vie sociale</h3>
+            <ul>
+                <li>Il développe l'esprit d'équipe : on ne gagne jamais seul.</li>
+                <li>Il transmet des valeurs comme le respect de l'adversaire, de l'arbitre et des partenaires.</li>
+            </ul>
+
+            <figure>
+                <img src="static/images/equipe.webp" width="1000" height="750" loading="lazy" decoding="async" alt="Une équipe de handball posant devant un but dans un gymnase, sous la bannière de l'ASUC Migennes">
+                <figcaption>L'équipe de l'ASUC Migennes : au handball, on gagne ensemble.</figcaption>
+            </figure>
+        </section>
+
+        <!-- ===================== RÈGLES ===================== -->
+        <section id="regles">
+            <h2>Les règles essentielles</h2>
+            <p>Un match se joue en deux mi-temps de 30 minutes, sur un terrain de 40 mètres de long et 20 mètres de large.</p>
+
+            <ul>
+                <li><strong>La zone des 6 mètres :</strong> seul le gardien a le droit d'y entrer. Un joueur peut sauter au-dessus pour tirer, à condition de lâcher le ballon avant de toucher le sol dans la zone.</li>
+                <li><strong>Les 3 pas :</strong> on ne peut pas faire plus de trois pas avec le ballon en main.</li>
+                <li><strong>Les 3 secondes :</strong> on ne peut pas garder le ballon plus de trois secondes sans le passer, dribbler ou tirer.</li>
+                <li><strong>Le double dribble :</strong> après avoir repris le ballon à deux mains, on n'a plus le droit de dribbler à nouveau.</li>
+                <li><strong>Le jeu passif :</strong> une équipe qui garde le ballon sans chercher à attaquer peut se le faire retirer par l'arbitre.</li>
+                <li><strong>Le jet de 7 mètres :</strong> c'est le penalty du handball, accordé quand une faute empêche une occasion nette de but.</li>
+            </ul>
+
+            <h3>Les sanctions</h3>
+
+            <figure class="petite">
+                <img src="static/images/cartons.webp" width="400" height="400" loading="lazy" decoding="async" alt="Un carton rouge, un carton jaune et un carton bleu">
+                <figcaption>Les trois cartons de l'arbitre : jaune, rouge et bleu.</figcaption>
+            </figure>
+
+            <div class="tableau">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sanction</th>
+                            <th>Quand ?</th>
+                            <th>Conséquence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Sanction">Avertissement (carton jaune)</td>
+                            <td data-label="Quand ?">Première faute antisportive ou comportement incorrect</td>
+                            <td data-label="Conséquence">Simple avertissement, le joueur reste sur le terrain</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Sanction">Exclusion de 2 minutes</td>
+                            <td data-label="Quand ?">Faute grave, récidive ou réclamation</td>
+                            <td data-label="Conséquence">Le joueur sort 2 minutes, son équipe joue à un de moins</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Sanction">Disqualification (carton rouge)</td>
+                            <td data-label="Quand ?">Faute très dangereuse ou troisième exclusion</td>
+                            <td data-label="Conséquence">Le joueur quitte le match, son équipe joue 2 minutes à un de moins</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Sanction">Carton bleu</td>
+                            <td data-label="Quand ?">Montré après un carton rouge, pour un geste particulièrement grave</td>
+                            <td data-label="Conséquence">L'arbitre rédige un rapport, et le joueur risque une suspension pour les matchs suivants</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===================== POSTES ===================== -->
+        <section id="postes">
+            <h2>Les différents postes</h2>
+
+            <figure>
+                <img src="static/images/terrain-postes.webp" width="1200" height="736" loading="lazy" decoding="async" alt="Schéma d'un terrain de handball montrant la position des sept joueurs en attaque">
+                <figcaption>Position des joueurs d'une équipe en attaque.</figcaption>
+            </figure>
+
+            <div class="tableau">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Poste</th>
+                            <th>Rôle</th>
+                            <th>Qualités</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Poste">Gardien</td>
+                            <td data-label="Rôle">Arrêter les tirs et relancer le jeu</td>
+                            <td data-label="Qualités">Réflexes, souplesse, courage</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Poste">Ailiers (gauche et droit)</td>
+                            <td data-label="Rôle">Jouer sur les côtés, marquer en contre-attaque et dans les angles fermés</td>
+                            <td data-label="Qualités">Vitesse, détente, précision</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Poste">Arrières (gauche et droit)</td>
+                            <td data-label="Rôle">Tirer de loin et percer la défense</td>
+                            <td data-label="Qualités">Taille, puissance de tir</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Poste">Demi-centre</td>
+                            <td data-label="Rôle">Organiser les attaques, distribuer le jeu</td>
+                            <td data-label="Qualités">Vision du jeu, qualité de passe, leadership</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Poste">Pivot</td>
+                            <td data-label="Rôle">Jouer au contact de la défense pour créer des espaces ou marquer près de la zone</td>
+                            <td data-label="Qualités">Force, solidité, bonnes mains</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===================== LE MENTAL ===================== -->
+        <section id="mental">
+            <h2>Le mental, une arme sur le terrain</h2>
+            <p>Au handball, tout va très vite et la pression est permanente. Le meilleur exemple est le jet de 7 mètres : le tireur se retrouve seul face au gardien, avec tout le public qui regarde. À ce moment-là, le mental compte autant que la technique.</p>
+
+            <figure>
+                <img src="static/images/7m.webp" width="1000" height="667" loading="lazy" decoding="async" alt="Un joueur se prépare à tirer un jet de 7 mètres face au gardien, bras levés">
+                <figcaption>Le jet de 7 mètres : un duel face au gardien où le mental fait la différence.</figcaption>
+            </figure>
+            <p>Pour gérer cette pression, beaucoup de joueurs ont une routine : une respiration lente, toujours le même geste avant de tirer, et l'attention fixée sur l'action à faire plutôt que sur l'enjeu. Après une erreur, l'important est de passer vite à l'action suivante au lieu de ruminer.</p>
+        </section>
+
+        <!-- ===================== RÉACTIONS ===================== -->
+        <section id="reactions">
+            <h2>Réagissez !</h2>
+            <p>Cet article vous plaît ? Donnez-nous votre avis.</p>
+
+            {% with alertes = get_flashed_messages() %}
+                {% for alerte in alertes %}
+                    <p class="alerte">{{ alerte }}</p>
+                {% endfor %}
+            {% endwith %}
+
+            <!-- Le formulaire envoie les données en POST à la route "/" de Flask.
+                 Les attributs "name" sont les noms que tu récupéreras côté Python. -->
+            <form class="formulaire" method="post" action="/">
+                <label for="pseudo">Pseudo</label>
+                <input type="text" id="pseudo" name="pseudo" maxlength="50" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" maxlength="500" required></textarea>
+
+                <!-- Pot de miel anti-robots : champ caché en CSS.
+                     Un humain ne le voit pas, donc s'il est rempli, c'est un robot. -->
+                <div class="pot-de-miel" aria-hidden="true">
+                    <label for="site_web">Ne pas remplir</label>
+                    <input type="text" id="site_web" name="site_web" tabindex="-1" autocomplete="off">
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <!-- Liste des messages : un exemple écrit à la main pour l'instant,
+     à remplacer par une boucle Jinja. -->
+            <div class="liste-messages">
+    {% for msg in messages %}
+        <article class="message{% if loop.index > 5 %} cache{% endif %}">
+            <p class="message-entete">
+                <strong>{{ msg['pseudo'] }}</strong> · <time datetime="{{ msg['date'] }}">{{ msg['date']|date_fr }}</time>
+            </p>
+            <p>{{ msg['message'] }}</p>
+        </article>
+    {% else %}
+        <p>Aucun message pour l'instant. Soyez le premier à réagir !</p>
+    {% endfor %}
+</div>
+
+{% if messages|length > 5 %}
+    <button type="button" id="voir-plus" class="voir-plus">Voir plus de messages</button>
+{% endif %}
+        </section>
+
+    </main>
+
+    <!-- ===================== PIED DE PAGE ===================== -->
+    <footer class="pied">
+        <p>Elyzio · Bachelor Sciences Numérique, Pôle formation Auxerre · Culture générale et expression · 2026</p>
+        <p class="credits">Icône : <a href="https://icons8.com" target="_blank" rel="noopener">Icons8</a></p>
+    </footer>
+
+    <!-- ===================== MENU BURGER ===================== -->
+    <script>
+        const burger = document.querySelector(".burger");
+        const menu = document.querySelector(".menu");
+
+        // Ouvre ou ferme le menu au clic sur le burger
+        burger.addEventListener("click", () => {
+            const ouvert = menu.classList.toggle("ouvert");
+            burger.setAttribute("aria-expanded", ouvert);
+            burger.setAttribute("aria-label", ouvert ? "Fermer le menu" : "Ouvrir le menu");
+        });
+
+        // Referme le menu quand on clique sur un lien
+        document.querySelectorAll("#liens-menu a").forEach((lien) => {
+            lien.addEventListener("click", () => {
+                menu.classList.remove("ouvert");
+                burger.setAttribute("aria-expanded", "false");
+                burger.setAttribute("aria-label", "Ouvrir le menu");
+            });
+        });
+
+        // Bouton "Voir plus" : affiche 5 messages de plus à chaque clic
+const boutonVoirPlus = document.querySelector("#voir-plus");
+
+if (boutonVoirPlus) {
+    boutonVoirPlus.addEventListener("click", () => {
+        const caches = document.querySelectorAll(".message.cache");
+
+        // On enlève la classe "cache" sur les 5 premiers messages cachés
+        caches.forEach((msg, i) => {
+            if (i < 5) {
+                msg.classList.remove("cache");
+            }
+        });
+
+        // S'il n'en reste plus à afficher, on enlève le bouton
+        if (caches.length <= 5) {
+            boutonVoirPlus.remove();
+        }
+    });
+}
+    </script>
+
+</body>
+</html>

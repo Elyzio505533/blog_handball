@@ -1,0 +1,611 @@
+/* =====================================================
+   CHARTE GRAPHIQUE
+   Les couleurs et polices sont définies une seule fois ici
+   (variables CSS), puis réutilisées partout avec var(--nom).
+   ===================================================== */
+
+/* Police des paragraphes : NeverMind (police par défaut de Xmind).
+   Si tu as les fichiers de la police, mets-les dans static/fonts/
+   et ce bloc les chargera. Sinon, la police de secours est utilisée. */
+
+
+:root {
+    /* Couleurs de la charte */
+    --bleu: #014370;          /* texte principal */
+    --blanc: #ffffff;         /* fond */
+
+    /* Nuances du bleu, pour les fonds et les bordures */
+    --bleu-clair: #e6eef4;
+    --bleu-moyen: #b3c7d4;
+    --bleu-fonce: #012a47;
+
+    /* Polices */
+    --police-titres: "Lato", Arial, sans-serif;
+    --police-texte: "NeverMind", "Segoe UI", Roboto, Arial, sans-serif;
+
+    /* Largeur maximale du site (menu et contenu alignés) */
+    --largeur-max: 1000px;
+
+    /* Hauteur de la barre de navigation (réutilisée plus bas) */
+    --hauteur-menu: 64px;
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+
+/* Le padding et la bordure sont inclus dans la largeur des éléments */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;   /* défilement fluide quand on clique dans le menu */
+}
+
+body {
+    margin: 0;
+    font-family: var(--police-texte);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--bleu);
+    background-color: var(--blanc);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--police-titres);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-top: 0;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid var(--bleu);
+    display: inline-block;     /* la bordure fait la largeur du titre seulement */
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-top: 1.8rem;
+}
+
+img {
+    max-width: 100%;           /* une image ne dépasse jamais son conteneur */
+    height: auto;
+}
+
+a {
+    color: var(--bleu);
+}
+
+/* =====================================================
+   EN-TÊTE : barre de navigation collante
+   ===================================================== */
+
+.entete {
+    position: sticky;          /* reste collé en haut pendant le défilement */
+    top: 0;
+    z-index: 10;               /* passe au-dessus du reste de la page */
+    background-color: var(--blanc);
+    box-shadow: 0 2px 10px rgba(1, 67, 112, 0.15);
+}
+
+.menu {
+    position: relative;        /* repère pour le menu déroulant sur mobile */
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: var(--largeur-max);
+    height: var(--hauteur-menu);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.menu ul {
+    flex: 1;                   /* la liste prend toute la place restante */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   /* répartit les liens sur la ligne */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.logo img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.logo:hover img {
+    transform: rotate(-15deg); /* petit effet au survol */
+}
+
+.menu ul a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    font-family: var(--police-titres);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu ul a:hover,
+.menu ul a:focus-visible {
+    background-color: var(--bleu);
+    color: var(--blanc);
+}
+
+/* Bouton burger : caché sur ordinateur */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;         /* poussé tout à droite */
+    padding: 10px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Les 3 barres du burger */
+.burger span {
+    display: block;
+    height: 3px;
+    background-color: var(--bleu);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Menu ouvert : les 3 barres se transforment en croix */
+.menu.ouvert .burger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu.ouvert .burger span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu.ouvert .burger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Quand on clique sur un lien du menu, la section ne se cache
+   pas sous la barre collante */
+section,
+aside {
+    scroll-margin-top: calc(var(--hauteur-menu) + 1rem);
+}
+
+/* =====================================================
+   HERO : titre sur l'image de bannière
+   ===================================================== */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--blanc);
+    /* Dégradé bleu par-dessus la photo pour que le texte reste lisible.
+       Le chemin est relatif au fichier CSS (qui est dans static/). */
+    background-image:
+        linear-gradient(rgba(1, 42, 71, 0.65), rgba(1, 67, 112, 0.65)),
+        url("images/handball.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.2rem, 6vw, 4rem);   /* taille qui s'adapte à l'écran */
+    font-weight: 900;
+    text-transform: uppercase;             /* majuscules gérées par le CSS */
+    letter-spacing: 0.05em;
+}
+
+.sous-titre {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    max-width: 40ch;
+}
+
+/* =====================================================
+   CONTENU PRINCIPAL
+   ===================================================== */
+
+.contenu {
+    max-width: var(--largeur-max);   /* même largeur que le menu */
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+/* Encadré "L'essentiel" */
+.essentiel {
+    margin: 0 0 4rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--bleu-clair);
+    border-left: 6px solid var(--bleu);
+    border-radius: 0 10px 10px 0;
+}
+
+.essentiel h2 {
+    font-size: 1.4rem;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.essentiel p {
+    margin-bottom: 0;
+}
+
+/* Listes */
+section ul {
+    padding-left: 1.2rem;
+}
+
+section li {
+    margin-bottom: 0.5rem;
+}
+
+section li::marker {
+    color: var(--bleu);
+}
+
+/* Images avec légende */
+figure {
+    margin: 2rem 0;
+}
+
+figure img {
+    display: block;
+    border-radius: 10px;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* =====================================================
+   TABLEAUX
+   ===================================================== */
+
+/* Le conteneur permet de faire défiler le tableau sur mobile */
+.tableau {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    border: 1px solid var(--bleu-moyen);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    font-family: var(--police-titres);
+    background-color: var(--bleu);
+    color: var(--blanc);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bleu-clair);   /* une ligne sur deux colorée */
+}
+
+tbody td:first-child {
+    font-weight: bold;
+}
+
+/* =====================================================
+   FORMULAIRE DE RÉACTION
+   ===================================================== */
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background-color: var(--bleu-clair);
+    border-radius: 10px;
+}
+
+.formulaire label {
+    font-family: var(--police-titres);
+    font-weight: 700;
+}
+
+.formulaire input,
+.formulaire textarea {
+    width: 100%;
+    margin-bottom: 0.8rem;
+    padding: 0.7rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--bleu);
+    background-color: var(--blanc);
+    border: 2px solid var(--bleu-moyen);
+    border-radius: 6px;
+}
+
+.formulaire textarea {
+    resize: vertical;          /* on peut agrandir seulement en hauteur */
+}
+
+.formulaire input:focus,
+.formulaire textarea:focus {
+    outline: none;
+    border-color: var(--bleu);
+}
+
+.formulaire button {
+    align-self: flex-start;
+    padding: 0.8rem 2rem;
+    font-family: var(--police-titres);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blanc);
+    background-color: var(--bleu);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.formulaire button:hover {
+    background-color: var(--bleu-fonce);
+}
+
+/* Pot de miel : sorti de l'écran, invisible pour les humains */
+.pot-de-miel {
+    position: absolute;
+    left: -9999px;
+}
+
+/* =====================================================
+   LISTE DES MESSAGES
+   ===================================================== */
+
+.liste-messages {
+    margin-top: 2rem;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--bleu-moyen);
+    border-radius: 10px;
+}
+
+.message p {
+    margin: 0;
+}
+
+.message-entete {
+    margin-bottom: 0.4rem !important;
+    font-size: 0.9rem;
+}
+
+.message-entete strong {
+    font-family: var(--police-titres);
+    font-size: 1rem;
+}
+
+/* =====================================================
+   PIED DE PAGE
+   ===================================================== */
+
+.pied {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--blanc);
+    background-color: var(--bleu);
+}
+
+.pied p {
+    margin: 0.3rem 0;
+}
+
+.pied a {
+    color: var(--blanc);
+}
+
+.credits {
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+/* =====================================================
+   PETITS ÉCRANS (téléphones)
+   ===================================================== */
+
+/* Menu burger : dès que les liens ne tiennent plus sur une ligne */
+@media (max-width: 860px) {
+    .burger {
+        display: flex;
+    }
+
+    /* La liste devient un panneau qui s'ouvre sous la barre */
+    .menu ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.2rem;
+        padding: 0.8rem 1rem 1.2rem;
+        background-color: var(--blanc);
+        box-shadow: 0 10px 15px rgba(1, 67, 112, 0.15);
+        display: none;         /* fermé par défaut */
+    }
+
+    /* Ouvert quand le JavaScript ajoute la classe "ouvert" */
+    .menu.ouvert ul {
+        display: flex;
+    }
+
+    .menu ul a {
+        padding: 0.8rem 1rem;  /* zones de clic plus grandes pour le doigt */
+        font-size: 1.1rem;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .menu {
+        padding: 0 1rem;
+    }
+
+    .hero {
+        min-height: 45vh;
+    }
+
+    .essentiel {
+        padding: 1.2rem;
+    }
+
+    /* ----- Tableaux en fiches empilées ----- */
+
+    .tableau {
+        overflow-x: visible;
+        border: none;
+    }
+
+    /* L'en-tête est caché visuellement mais reste lu par les lecteurs d'écran */
+    .tableau thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+
+    .tableau table,
+    .tableau tbody,
+    .tableau tr,
+    .tableau td {
+        display: block;
+        width: 100%;
+    }
+
+    /* Chaque ligne devient une fiche */
+    .tableau tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--bleu-moyen);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .tableau tbody tr:nth-child(even) {
+        background-color: transparent;
+    }
+
+    .tableau td {
+        padding: 0.6rem 1rem;
+    }
+
+    /* Le titre de la fiche (1re colonne) sur fond bleu */
+    .tableau td:first-child {
+        color: var(--blanc);
+        background-color: var(--bleu);
+        font-family: var(--police-titres);
+    }
+
+    /* Le nom de la colonne affiché au-dessus de chaque valeur */
+    .tableau td:not(:first-child)::before {
+        content: attr(data-label);
+        display: block;
+        font-family: var(--police-titres);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.7;
+    }
+
+    .tableau td:not(:first-child) + td {
+        border-top: 1px solid var(--bleu-clair);
+    }
+}
+
+/* =====================================================
+   PETITE IMAGE CENTRÉE (ex. les cartons)
+   ===================================================== */
+
+figure.petite {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Message d'avertissement au-dessus du formulaire */
+.alerte {
+    padding: 0.8rem 1rem;
+    color: #8a1c1c;
+    background-color: #fdecec;
+    border-left: 5px solid #c62828;
+    border-radius: 6px;
+}
+
+/* Messages cachés au-delà des 5 premiers */
+.message.cache {
+    display: none;
+}
+
+/* Bouton "Voir plus" */
+.voir-plus {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.7rem 1.5rem;
+    font-family: var(--police-titres);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--bleu);
+    background-color: var(--blanc);
+    border: 2px solid var(--bleu);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.voir-plus:hover {
+    color: var(--blanc);
+    background-color: var(--bleu);
+}
